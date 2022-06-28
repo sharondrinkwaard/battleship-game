@@ -15,11 +15,23 @@ def create_computer_board():
     print('This is the computer board')
 
 
+def create_player():
+    '''
+    Creates a username
+    '''
+    username_input = input('Create your username: \n')
+    if username_input == '':
+        print('You need to fill in a name. Try again')
+        create_player()
+    else: 
+        print('Hi ' + username_input + ', Let\'s start the game')
+
+
 def game_rules():
     '''
-    Displays the game rules
+    Displays the game rules if input answer is 'y'
     '''
-    rules_answer = input("Would you like to read the rules? y/n \n")
+    rules_answer = input('Would you like to read the rules? y/n \n')
     if rules_answer == 'y':
         print('These are the rules')
 
@@ -31,8 +43,7 @@ def main():
     '''
     print("Welcome to the Battleships game!")
     game_rules()
-
-
+    create_player()
     create_computer_board()
     create_player_board()
 
