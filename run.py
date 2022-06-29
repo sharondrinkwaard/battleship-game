@@ -22,6 +22,7 @@ def create_computer_board():
 def create_player():
     '''
     Creates a username
+    This is required
     '''
     username_input = input('Create your username: \n')
     if username_input == '':
@@ -35,6 +36,8 @@ def create_player():
 def game_rules():
     '''
     Displays the game rules if input answer is 'y'
+    Continues without displaying the rules if answer is 'n'
+    If answered otherswise, the user is asked to give valid input
     '''
     rules_answer = input('Would you like to read the rules? y/n \n')
     if rules_answer == 'y':
@@ -43,6 +46,17 @@ def game_rules():
     elif rules_answer != 'n':
         print('Input is invalid, try again')
         game_rules()
+
+
+def restart_game():
+    '''
+    Restarts the game if input is 'y'
+    '''
+    restart = input('Do you want to play again? y/n')
+    if restart == 'y':
+        main()
+    else:
+        print('Good bye! See you next time.')
 
 
 def main():
@@ -56,6 +70,7 @@ def main():
     create_player()
     create_computer_board()
     create_player_board()
+    restart_game()
 
 
 main()
