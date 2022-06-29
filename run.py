@@ -1,3 +1,7 @@
+'''
+Battleship game Portfolio Project 3
+'''
+
 
 def create_player_board():
     '''
@@ -23,8 +27,9 @@ def create_player():
     if username_input == '':
         print('You need to fill in a name. Try again')
         create_player()
-    else: 
+    else:
         print('Hi ' + username_input + ', Let\'s start the game')
+        print('-----------------------------------')
 
 
 def game_rules():
@@ -34,6 +39,10 @@ def game_rules():
     rules_answer = input('Would you like to read the rules? y/n \n')
     if rules_answer == 'y':
         print('These are the rules')
+        print('-----------------------------------')
+    elif rules_answer != 'n':
+        print('Input is invalid, try again')
+        game_rules()
 
 
 def main():
@@ -41,7 +50,8 @@ def main():
     Main function where all other functions are being called from.
     This functions runs the game
     '''
-    print("Welcome to the Battleships game!")
+    print('Welcome to the Battleships game!')
+    print('-----------------------------------')
     game_rules()
     create_player()
     create_computer_board()
