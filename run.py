@@ -12,11 +12,19 @@ def create_player_board():
     print('This is the player board')
 
 
-def create_computer_board():
+# Creates an empty list and appends dots to it to create a game board
+board = []
+for x in range(5):
+    board.append(['.'] * 5)
+
+
+def create_computer_board(board):
     '''
     Prints the battleship board of the computer
+    Adds a space between the dots
     '''
-    print('This is the computer board')
+    for row in board:
+        print(" ".join(row))
 
 
 def create_player():
@@ -37,7 +45,7 @@ def game_rules():
     '''
     Displays the game rules if input answer is 'y'
     Continues without displaying the rules if answer is 'n'
-    If answered otherswise, the user is asked to give valid input
+    If answered otherwise, the user is asked to give valid input
     '''
     rules_answer = input('Would you like to read the rules? y/n \n')
     if rules_answer == 'y':
@@ -66,9 +74,9 @@ def main():
     '''
     print('Welcome to the Battleships game!')
     print('-----------------------------------')
-    game_rules()
-    create_player()
-    create_computer_board()
+    # game_rules()
+    # create_player()
+    create_computer_board(board)
     create_player_board()
     restart_game()
 
