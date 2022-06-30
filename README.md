@@ -29,3 +29,9 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 -----
 Happy coding!
+
+
+
+## notes
+from random import randint -- I saw this on a comment on a Github repo and started googling it to learn more about it. https://docs.python.org/3/library/random.html
+

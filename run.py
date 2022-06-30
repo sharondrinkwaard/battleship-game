@@ -12,10 +12,8 @@ def create_player_board():
     print('This is the player board')
 
 
-# Creates an empty list and appends dots to it to create a game board
+# Creates an empty list which will be used later to create a board
 board = []
-for x in range(5):
-    board.append(['.'] * 5)
 
 
 def create_computer_board(board):
@@ -23,6 +21,9 @@ def create_computer_board(board):
     Prints the battleship board of the computer
     Adds a space between the dots
     '''
+    for x in range(5):
+        board.append(['.'] * 5)
+    
     for row in board:
         print(" ".join(row))
 
@@ -60,9 +61,12 @@ def restart_game():
     '''
     Restarts the game if input is 'y'
     '''
-    restart = input('Do you want to play again? y/n')
+    restart = input('Do you want to play again? y/n \n')
     if restart == 'y':
         main()
+    elif restart != 'n':
+        print('Invalid input, try again')
+        restart_game()
     else:
         print('Good bye! See you next time.')
 
