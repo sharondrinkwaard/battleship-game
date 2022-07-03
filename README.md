@@ -35,3 +35,6 @@ Happy coding!
 ## notes
 from random import randint -- I saw this on a comment on a Github repo and started googling it to learn more about it. https://docs.python.org/3/library/random.html
 
+
+## unsolved bugs
+- Sometimes the ship placement function places only three ships instead of 4. I haven't discovered why it's doing this yet. As it choses a random int between 1 and 4 within a for loop of range 4, it should place 4 ships at a random location each time the function is called. 

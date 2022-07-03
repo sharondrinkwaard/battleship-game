@@ -5,7 +5,7 @@ Battleship game Portfolio Project 3
 # Imports randint so a random integer can be used for the computer's turn
 from random import randint
 
-# Variables to control the game
+# ndex 0 are the 'row headings'
 board = [
     ['A', '.', '.', '.', '.', '.'],
     ['B', '.', '.', '.', '.', '.'],
@@ -13,11 +13,12 @@ board = [
     ['D', '.', '.', '.', '.', '.'],
     ['E', '.', '.', '.', '.', '.'],
 ]
-player_ships = [()]
-turn = 'player'
-round = 0  # of 10
-points_pc = 0  # increments by 1 each correct hit
-points_player = 0  # increments by 1 each correct hit
+# Variables to control the game
+# player_ships = [()]
+# turn = 'player'
+# round = 0  # of 10
+# points_pc = 0  # increments by 1 each correct hit
+# points_player = 0  # increments by 1 each correct hit
 
 
 def create_player():
@@ -62,13 +63,16 @@ def display_battleship_game(board):
 
 def place_random_ships(board):
     '''
-    This function will place the ships of the user and computer
+    This function will place the ships.
+    I'm using a for loop with range 4 because I want to place 4 ships
     '''
-    ships_row = randint([0], [5])
-    ships_column = randint([0], [5])
-    for locs in zip(ships_row, ships_column):
-        board[locs] = 'X'
-        print(board)
+    # Starting from 1 instead of 0
+    # beacuse I don't want to include the headings 'A' or 'B' etc
+    # while using indexing to place ships
+    for ships in range(4):
+        ships_row = randint(1, 4)
+        ships_column = randint(1, 4)
+        board[ships_row][ships_column] = 'X'
 
 
 def game():
@@ -102,6 +106,7 @@ def main():
     # create_player()
     display_battleship_game(board)
     place_random_ships(board)
+    display_battleship_game(board)
     # restart_game()
 
 
