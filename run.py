@@ -7,11 +7,11 @@ from random import randint
 
 # Variables to control the game
 board = [
-    ['.', '.', '.', '.', '.'],
-    ['.', '.', '.', '.', '.'],
-    ['.', '.', '.', '.', '.'],
-    ['.', '.', '.', '.', '.'],
-    ['.', '.', '.', '.', '.'],
+    ['A', '.', '.', '.', '.', '.'],
+    ['B', '.', '.', '.', '.', '.'],
+    ['C', '.', '.', '.', '.', '.'],
+    ['D', '.', '.', '.', '.', '.'],
+    ['E', '.', '.', '.', '.', '.'],
 ]
 player_ships = [()]
 turn = 'player'
@@ -54,6 +54,7 @@ def display_battleship_game(board):
     Prints the battleship game board
     Adds a space between the dots
     '''
+    print('+ 1 2 3 4 5')
     for row in board:
         print(" ".join(row))
     print('-----------------------------------')
