@@ -2,30 +2,22 @@
 Battleship game Portfolio Project 3
 '''
 
+# Imports randint so a random integer can be used for the computer's turn
+from random import randint
 
-def create_player_board():
-    '''
-    Prints the battleship board for the user
-    On the user board is shown where his battleships are
-    On the computer's board these are hidden for the user
-    '''
-    print('This is the player board')
-
-
-# Creates an empty list which will be used later to create a board
-board = []
-
-
-def create_computer_board(board):
-    '''
-    Prints the battleship board of the computer
-    Adds a space between the dots
-    '''
-    for x in range(5):
-        board.append(['.'] * 5)
-    
-    for row in board:
-        print(" ".join(row))
+# Variables to control the game
+board = [
+    ['.', '.', '.', '.', '.'],
+    ['.', '.', '.', '.', '.'],
+    ['.', '.', '.', '.', '.'],
+    ['.', '.', '.', '.', '.'],
+    ['.', '.', '.', '.', '.'],
+]
+player_ships = [()]
+turn = 'player'
+round = 0  # of 10
+points_pc = 0  # increments by 1 each correct hit
+points_player = 0  # increments by 1 each correct hit
 
 
 def create_player():
@@ -38,7 +30,7 @@ def create_player():
         print('You need to fill in a name. Try again')
         create_player()
     else:
-        print('Hi ' + username_input + ', Let\'s start the game')
+        print('\nHi ' + username_input + ', Let\'s start the game')
         print('-----------------------------------')
 
 
@@ -55,6 +47,33 @@ def game_rules():
     elif rules_answer != 'n':
         print('Input is invalid, try again')
         game_rules()
+
+
+def display_battleship_game(board):
+    '''
+    Prints the battleship game board
+    Adds a space between the dots
+    '''
+    for row in board:
+        print(" ".join(row))
+    print('-----------------------------------')
+
+
+def place_random_ships(board):
+    '''
+    This function will place the ships of the user and computer
+    '''
+    ships_row = randint([0], [5])
+    ships_column = randint([0], [5])
+    for locs in zip(ships_row, ships_column):
+        board[locs] = 'X'
+        print(board)
+
+
+def game():
+    '''
+    Runs the game board
+    '''
 
 
 def restart_game():
@@ -80,9 +99,9 @@ def main():
     print('-----------------------------------')
     # game_rules()
     # create_player()
-    create_computer_board(board)
-    create_player_board()
-    restart_game()
+    display_battleship_game(board)
+    place_random_ships(board)
+    # restart_game()
 
 
 main()
