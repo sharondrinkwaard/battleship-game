@@ -5,7 +5,7 @@ Battleship game Portfolio Project 3
 # Imports randint so a random integer can be used for the computer's turn
 from random import randint
 
-# ndex 0 are the 'row headings'
+# Index 0 are the 'row headings'
 board = [
     ['A', '.', '.', '.', '.', '.'],
     ['B', '.', '.', '.', '.', '.'],
@@ -15,10 +15,11 @@ board = [
 ]
 # Variables to control the game
 # player_ships = [()]
-# turn = 'player'
-# round = 0  # of 10
+turn = 'player'
 # points_pc = 0  # increments by 1 each correct hit
-# points_player = 0  # increments by 1 each correct hit
+# points_player  # increments by 1 each correct hit
+ships_row = 0
+ships_column = 0
 
 
 def create_player():
@@ -73,6 +74,30 @@ def place_random_ships(board):
         ships_row = randint(1, 4)
         ships_column = randint(1, 4)
         board[ships_row][ships_column] = 'X'
+    # if (board[ships_row][ships_column] == 'X'):
+        # print('.', ' ', end='')
+
+
+def turns_and_moves(board):
+    '''
+    Mananges the turns and guesses
+    '''
+    points_player = 0
+    for rounds in range(10):
+        if turn == 'player':
+            print('-----------------------------------')
+            move_row = input('Choose your row: A B C D or E\n')
+            move_column = input('Choose your column: 1 2 3 4 or 5\n')
+            if move_row and move_column == 'x':
+                print('Hit! You sunk a battleship!')
+                board[ships_row][ships_column] = '$'
+                points_player += 1
+                print('You have got' + {points_player} + 'points')
+                # turn = 'computer'
+            else:
+                print('You missed... ')
+                # turn = 'computer'
+                break
 
 
 def game():
@@ -106,6 +131,8 @@ def main():
     # create_player()
     display_battleship_game(board)
     place_random_ships(board)
+    display_battleship_game(board)
+    turns_and_moves(board)
     display_battleship_game(board)
     # restart_game()
 
