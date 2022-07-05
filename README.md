@@ -41,6 +41,9 @@ I decided to create anoter game board so that I have 2.
 One for the player moves and one for the ships
 Every time I need to display the board without ships, I display the board of the player moves.
 Everytime The user gets it right and hits a ship, I place an $ on both of the boards so both boards keep track of what ships are being hit, while keeping the other ships hidden from the player.
+
 ## unsolved bugs
 - Sometimes the ship placement function places only three ships instead of 4. I haven't discovered why it's doing this yet. As it choses a random int between 1 and 4 within a for loop of range 4, it should place 4 ships at a random location each time the function is called. 
-Maybe it prints 2 x's on the same locations
+Maybe it prints 2 x's on the same location
+
+- input of the player is not catched yet. When input is bigger than 5 an error occurs and quits the game.

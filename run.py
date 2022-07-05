@@ -62,18 +62,21 @@ def game_rules():
 def display_battleship_game(board):
     '''
     Prints the battleship game board
-    Adds a space between the dots
+    On this board the ships will be placed
+    The player will not see this board as the ships location is secret
     '''
     for row in board:
         print(" ".join(row))
     print('-----------------------------------')
 
 
-def display_board_moves(board_with_moves):
+def display_board_with_moves(board_with_moves):
     '''
-    Display game board with the player moves.
+    Prints the game board without the ships
+    The input coordinates are being placed on this board
+    And are shown to the player
     '''
-    for row in board:
+    for row in board_with_moves:
         print(" ".join(row))
     print('-----------------------------------')
 
@@ -89,25 +92,13 @@ def place_random_ships(board):
         ships_row = randint(1, 5)
         ships_column = randint(1, 5)
         board[ships_row][ships_column] = 'X'
-        
-    # if board[ships_row][ships_column] == 'X':
-        # print('.', ' ', end='')
+        print(ships_row, ships_column)
 
 
-def hide_ships(board):
+def turns_and_moves(board, board_with_moves):
     '''
-    Hide ships
-    '''
-
-    print(board)
-    x = board.index('X')
-    board = board[:x]+['.']+board[x+1:]
-    print(board)
-
-
-def turns_and_moves(board):
-    '''
-    Mananges the turns and guesses
+    Mananges the input of the player with several if statements
+    And a for loop
     '''
     # turn = 'player'
     points_player = int(0)
@@ -121,12 +112,16 @@ def turns_and_moves(board):
         if board[move_row][move_column] == 'X':
             print('Hit! You sunk a battleship!')
             board[move_row][move_column] = '$'
+            board_with_moves[move_row][move_column] = '$'
             points_player += 1
             print(f'Sunken ships: {points_player}')
+            display_board_with_moves(board_with_moves)
         else:
             print('You missed... \nTry again')
             print(f'Sunken ships: {points_player}')
             board[move_row][move_column] = 'M'
+            board_with_moves[move_row][move_column] = 'M'
+            display_board_with_moves(board_with_moves)
 
         if points_player == 4:
             print('-----------------------------------')
@@ -136,12 +131,13 @@ def turns_and_moves(board):
         if bullets == 10:
             print('-----------------------------------')
             print('No more bullets left\nGame over!')
+            display_battleship_game(board)
             break
 
 
 def game():
     '''
-    Runs the game board
+    Runs the game
     '''
 
 
@@ -170,9 +166,9 @@ def main():
     # game_rules()
     # create_player()
     # display_battleship_game(board)
+    display_board_with_moves(board_with_moves)
     place_random_ships(board)
-    hide_ships(board)
-    # turns_and_moves(board)
+    turns_and_moves(board, board_with_moves)
     # restart_game()
 
 
