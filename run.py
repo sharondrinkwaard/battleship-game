@@ -7,19 +7,18 @@ from random import randint
 
 # Index 0 are the 'row headings'
 board = [
-    ['A', '.', '.', '.', '.', '.'],
-    ['B', '.', '.', '.', '.', '.'],
-    ['C', '.', '.', '.', '.', '.'],
-    ['D', '.', '.', '.', '.', '.'],
-    ['E', '.', '.', '.', '.', '.'],
+    ['+', '1', '2', '3', '4', '5'],
+    ['1', '.', '.', '.', '.', '.'],
+    ['2', '.', '.', '.', '.', '.'],
+    ['3', '.', '.', '.', '.', '.'],
+    ['4', '.', '.', '.', '.', '.'],
+    ['5', '.', '.', '.', '.', '.'],
 ]
 # Variables to control the game
 # player_ships = [()]
-turn = 'player'
+# turn = 'player'
 # points_pc = 0  # increments by 1 each correct hit
 # points_player  # increments by 1 each correct hit
-ships_row = 0
-ships_column = 0
 
 
 def create_player():
@@ -56,7 +55,6 @@ def display_battleship_game(board):
     Prints the battleship game board
     Adds a space between the dots
     '''
-    print('+ 1 2 3 4 5')
     for row in board:
         print(" ".join(row))
     print('-----------------------------------')
@@ -68,12 +66,12 @@ def place_random_ships(board):
     I'm using a for loop with range 4 because I want to place 4 ships
     '''
     # Starting from 1 instead of 0
-    # beacuse I don't want to include the headings 'A' or 'B' etc
-    # while using indexing to place ships
+    # beacuse I don't want to place a ship on the headings
     for ships in range(4):
-        ships_row = randint(1, 4)
-        ships_column = randint(1, 4)
+        ships_row = randint(1, 5)
+        ships_column = randint(1, 5)
         board[ships_row][ships_column] = 'X'
+        print(ships_row, ships_column)
     # if (board[ships_row][ships_column] == 'X'):
         # print('.', ' ', end='')
 
@@ -82,22 +80,33 @@ def turns_and_moves(board):
     '''
     Mananges the turns and guesses
     '''
-    points_player = 0
-    for rounds in range(10):
-        if turn == 'player':
-            print('-----------------------------------')
-            move_row = input('Choose your row: A B C D or E\n')
-            move_column = input('Choose your column: 1 2 3 4 or 5\n')
-            if move_row and move_column == 'x':
-                print('Hit! You sunk a battleship!')
-                board[ships_row][ships_column] = '$'
-                points_player += 1
-                print('You have got' + {points_player} + 'points')
-                # turn = 'computer'
-            else:
-                print('You missed... ')
-                # turn = 'computer'
+    # turn = 'player'
+    points_player = int(0)
+
+    for bullets in range(10):
+        print('-----------------------------------')
+        move_row = int(input('Choose your row number: 1 - 5\n'))
+        move_column = int(input('Choose your column number: 1 - 5\n'))
+        # print(ships_row, ships_column)
+        if board[move_row][move_column] == 'X':
+            print('Hit! You sunk a battleship!')
+            board[move_row][move_column] = '$'
+            points_player += 1
+            print(f'You have got {points_player} points')
+            if points_player == 4:
+                print('You sunk all the battleships and won this game!')
+                print('Congratulations')
                 break
+            continue
+        elif move_column > 5 or move_row > 5:
+            print('That\'s out of range! Try again')
+            continue
+        elif bullets == 10:
+            print('No more bullets left\nGame over!')
+            break
+        else:
+            print('You missed... ')
+            board[move_row][move_column] = 'M'
 
 
 def game():
@@ -134,7 +143,7 @@ def main():
     display_battleship_game(board)
     turns_and_moves(board)
     display_battleship_game(board)
-    # restart_game()
+    restart_game()
 
 
 main()
