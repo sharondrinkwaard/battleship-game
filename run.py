@@ -2,7 +2,7 @@
 Battleship game Portfolio Project 3
 '''
 
-# Imports randint so a random integer can be used for the computer's turn
+# Imports randint so a random integer can be used
 from random import randint
 
 # Index 0 are the 'row headings'
@@ -17,8 +17,6 @@ board = [
 # Variables to control the game
 # player_ships = [()]
 # turn = 'player'
-# points_pc = 0  # increments by 1 each correct hit
-# points_player  # increments by 1 each correct hit
 
 
 def create_player():
@@ -43,7 +41,13 @@ def game_rules():
     '''
     rules_answer = input('Would you like to read the rules? y/n \n')
     if rules_answer == 'y':
-        print('These are the rules')
+        print('-----------------------------------')
+        print('\nOn the battleship board there are 4 hidden ships.')
+        print('You have 10 bullets to find all of them.')
+        print('When you find all 4 ships, you win.')
+        print('If you run out of bullets, you lose.\n')
+        print('Use number 1 2 3 4 or 5.\n')
+        print('M = missed shot\n$ = Ship that sunk')
         print('-----------------------------------')
     elif rules_answer != 'n':
         print('Input is invalid, try again')
@@ -83,30 +87,27 @@ def turns_and_moves(board):
     # turn = 'player'
     points_player = int(0)
 
-    for bullets in range(10):
+    for bullets in range(11):
         print('-----------------------------------')
         move_row = int(input('Choose your row number: 1 - 5\n'))
         move_column = int(input('Choose your column number: 1 - 5\n'))
-        # print(ships_row, ships_column)
+
         if board[move_row][move_column] == 'X':
             print('Hit! You sunk a battleship!')
             board[move_row][move_column] = '$'
             points_player += 1
             print(f'You have got {points_player} points')
-            if points_player == 4:
-                print('You sunk all the battleships and won this game!')
-                print('Congratulations')
-                break
-            continue
-        elif move_column > 5 or move_row > 5:
-            print('That\'s out of range! Try again')
-            continue
-        elif bullets == 10:
-            print('No more bullets left\nGame over!')
-            break
         else:
             print('You missed... ')
             board[move_row][move_column] = 'M'
+
+        if points_player == 4:
+            print('You sunk all the battleships and won this game!')
+            print('Congratulations')  # add {username_input}
+            break
+        if bullets == 10:
+            print('No more bullets left\nGame over!')
+            break
 
 
 def game():
@@ -136,14 +137,14 @@ def main():
     '''
     print('Welcome to the Battleships game!')
     print('-----------------------------------')
-    # game_rules()
+    game_rules()
     # create_player()
-    display_battleship_game(board)
-    place_random_ships(board)
-    display_battleship_game(board)
-    turns_and_moves(board)
-    display_battleship_game(board)
-    restart_game()
+    # display_battleship_game(board)
+    # place_random_ships(board)
+    # display_battleship_game(board)
+    # turns_and_moves(board)
+    # display_battleship_game(board)
+    # restart_game()
 
 
 main()
