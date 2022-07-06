@@ -92,7 +92,7 @@ def place_random_ships(board):
         ships_row = randint(1, 5)
         ships_column = randint(1, 5)
         board[ships_row][ships_column] = 'X'
-        print(ships_row, ships_column)
+        print(ships_row, ships_column)  # Delete before employment!
 
 
 def turns_and_moves(board, board_with_moves):
@@ -104,10 +104,24 @@ def turns_and_moves(board, board_with_moves):
     points_player = int(0)
 
     for bullets in range(11):
-        print('-----------------------------------')
-        move_row = int(input('Choose your row number: 1 - 5\n'))
-        move_column = int(input('Choose your column number: 1 - 5\n'))
-        print('-----------------------------------')
+        while True:
+            try:
+                print('-----------------------------------')
+                move_row = int(input('Choose your row number: 1 - 5\n'))
+                move_column = int(input('Choose your column number: 1 - 5\n'))
+                print('-----------------------------------')
+                if move_row > 5 or move_column > 5:
+                    print('That\'s out of range. Try again')
+                    continue
+                elif move_row < 1 or move_column < 1:
+                    print('That\'s out of range. Try again')
+                    continue
+            except ValueError:
+                print('Input is not valid!')
+            else:
+                print(move_row, move_column)
+                print('This value is correct. Continue to game')
+                break
 
         if board[move_row][move_column] == 'X':
             print('Hit! You sunk a battleship!')
@@ -166,8 +180,8 @@ def main():
     # game_rules()
     # create_player()
     # display_battleship_game(board)
-    display_board_with_moves(board_with_moves)
-    place_random_ships(board)
+    # display_board_with_moves(board_with_moves)
+    # place_random_ships(board)
     turns_and_moves(board, board_with_moves)
     # restart_game()
 

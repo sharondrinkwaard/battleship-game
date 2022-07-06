@@ -46,4 +46,17 @@ Everytime The user gets it right and hits a ship, I place an $ on both of the bo
 - Sometimes the ship placement function places only three ships instead of 4. I haven't discovered why it's doing this yet. As it choses a random int between 1 and 4 within a for loop of range 4, it should place 4 ships at a random location each time the function is called. 
 Maybe it prints 2 x's on the same location
 
-- input of the player is not catched yet. When input is bigger than 5 an error occurs and quits the game.
+- input of the player is not catched yet. When input is bigger than 5 an error occurs and quits the game. FIXED
+
+- When player does not give 2 coordinates, the game breaks. 
+
+
+## testing
+- game input:
+- tested when a user puts in a 0 (which is out of range in this game), that it won't break the game but that it is catched properly. 
+- Same for when the player puts in a value above 5, I am making sure this won't break the game but continues after giving the player a 2nd try to give valid input. 
+- 
+
+## Things to implement
+- To stop during the game
+- Play against the computer, so computer has his own board (2 game boards in total)
