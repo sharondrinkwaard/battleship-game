@@ -55,8 +55,13 @@ Maybe it prints 2 x's on the same location
 - game input:
 - tested when a user puts in a 0 (which is out of range in this game), that it won't break the game but that it is catched properly. 
 - Same for when the player puts in a value above 5, I am making sure this won't break the game but continues after giving the player a 2nd try to give valid input. 
-- 
+- When no input is given, the try except code catches the error
+- When a letter is given instead of a number, the try except catches the error
+- when input is the same location as an 'x, a ship ($) is placed on the board so the player can see 
+- When the player misses a battleship, an 'M' is printed on the board
 
 ## Things to implement
-- To stop during the game
+- Press button to be able to stop during the game
 - Play against the computer, so computer has his own board (2 game boards in total)
+- keep track of amount of bullets while playing the game
+- make sure the same coordinates cannot be placed twice
