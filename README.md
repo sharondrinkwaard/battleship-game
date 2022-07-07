@@ -32,6 +32,10 @@ When the player ran out of bullets, the player loses.
 ---
 - random
     - The random library was imported to access the built-in method of generating a random number selection using the randint() method. 
+- os
+    - The os library was imported to create a function to utilise the os.system to clear the terminal.
+- sys
+    - The sys library was imported to create a function to restart my program so that previous data would not be used when restarting the game.
 ## Testing
 ---
 ## Issues And Bugs Found
@@ -57,9 +61,13 @@ When writing this game, I found several issues on the way that needed to be solv
 
     ![Catch invalid input](./assets/images/catch_invalid_input.png)
 
-### Unsolved bugs
-- The Restart function restarts the game by calling the main function again. This function does not reset the game boards and all moves of the previous game is being displayed. 
+    - The restart function would restart the game but would not reset the game boards. So the moves of the previous game were displayed.
+    I created another function to clear the screen and restart my python module so that the game board is empty when restarting the game.
 
+    ![Reset function](./assets/images/reset_function.png)
+
+### Unsolved bugs
+---
 - Sometimes the ship placement function places only 3 ships instead of 4. 
 This function choses a random integer between 1 and 4 within a for loop of range 4. It should place 4 ships at a random location each time the function is called. And it is placing the ships correctly most of the time. Just so now and then it places only 3 ships because 2 coordinates are the exact same. What happens is the functions places 2 ships on the same location. 
 I want to solve this by using an extra if statement or an try except statement. So far I haven't had time yet and will leave this for features left to implement in the future. 
@@ -94,3 +102,11 @@ Everytime The user gets it right and hits a ship, I place an $ on both of the bo
 - When a letter is given instead of a number, the try except catches the error
 - when input is the same location as an 'x, a ship ($) is placed on the board so the player can see 
 - When the player misses a battleship, an 'M' is printed on the board
+
+## links
+https://www.geeksforgeeks.org/reloading-modules-python/
+https://www.codegrepper.com/code-examples/python/restart+python+script+automatically - helped me to understand the sys library
+https://www.w3schools.com/python/python_try_except.asp - helped me learn about try and except statements
+https://medium.com/@saumya.ranjan/how-to-write-a-readme-md-file-markdown-file-20cb7cbcd6f - reminded me of how to write in markdown
+https://en.wikipedia.org/wiki/Battleship_(game)#:~:text=The%20game%20of%20Battleship%20is%20thought%20to%20have,played%20by%20Russian%20officers%20before%20World%20War%20I - To learn a bit more about the battleship game which I was not familiar with
+

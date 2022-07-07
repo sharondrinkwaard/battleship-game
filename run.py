@@ -4,8 +4,9 @@ Battleship game Portfolio Project 3
 
 # Imports randint so a random integer can be used
 from random import randint
-# Imports os and sys libaries to restart the game without previous data
+# Imports os libary to clear the screen
 import os
+# Imports sys library to restart the game without previous data
 import sys
 
 
@@ -110,6 +111,7 @@ def turns_and_moves(board, board_with_moves):
     points_player = int(0)
 
     for bullets in range(11):
+        # While loop with try except statement to check if input is valid
         while True:
             try:
                 print('-----------------------------------')
@@ -119,9 +121,16 @@ def turns_and_moves(board, board_with_moves):
                 if move_row > 5 or move_column > 5:
                     print('That\'s out of range. Try again')
                     continue
-                elif move_row < 1 or move_column < 1:
-                    print('That\'s out of range. Try again')
-                    continue
+                #elif move_row < 1 or move_column < 1:
+                    #print('That\'s out of range. Try again')
+                    #continue
+                elif move_row == 0 or move_column == 0:
+                    print('Are you sure you want to quit?')
+                    stop = input('y/n\n')
+                    if stop == 'y':
+                        break
+                    else: 
+                        continue
             except ValueError:
                 print('Input is not valid!')
             else:
@@ -145,7 +154,7 @@ def turns_and_moves(board, board_with_moves):
         if points_player == 4:
             print('-----------------------------------')
             print('You sunk all the battleships and won this game!')
-            print('Congratulations')  # add {username_input}
+            print('Congratulations!')
             break
         if bullets == 10:
             print('-----------------------------------')
@@ -196,4 +205,5 @@ def main():
     restart_game()
 
 
-main()
+if __name__ == '__main__':
+    main()
