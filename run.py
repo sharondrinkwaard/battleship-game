@@ -74,7 +74,6 @@ def display_board_with_moves(board_with_moves):
     '''
     Prints the game board without the ships
     The input coordinates are being placed on this board
-    And are shown to the player
     '''
     for row in board_with_moves:
         print(" ".join(row))
@@ -84,7 +83,8 @@ def display_board_with_moves(board_with_moves):
 def place_random_ships(board):
     '''
     This function will place the ships.
-    I'm using a for loop with range 4 because I want to place 4 ships
+    The for loop with range 4 will place 4 ships at a random location
+    The ships are marked with an 'X' on the board
     '''
     # Starting from 1 instead of 0
     # beacuse I don't want to place a ship on the headings
@@ -98,7 +98,9 @@ def place_random_ships(board):
 def turns_and_moves(board, board_with_moves):
     '''
     Mananges the input of the player with several if statements
-    And a for loop
+    Within a for loop and a while loop
+    It catches all different kinds of input so that all errors
+    are being handled correctly without breaking the game
     '''
     # turn = 'player'
     points_player = int(0)
@@ -177,13 +179,12 @@ def main():
     '''
     print('\nWelcome to the Battleships game!')
     print('-----------------------------------')
-    # game_rules()
-    # create_player()
-    # display_battleship_game(board)
-    # display_board_with_moves(board_with_moves)
-    # place_random_ships(board)
+    game_rules()
+    create_player()
+    display_board_with_moves(board_with_moves)
+    place_random_ships(board)
     turns_and_moves(board, board_with_moves)
-    # restart_game()
+    restart_game()
 
 
 main()

@@ -48,7 +48,9 @@ Maybe it prints 2 x's on the same location
 
 - input of the player is not catched yet. When input is bigger than 5 an error occurs and quits the game. FIXED
 
-- When player does not give 2 coordinates, the game breaks. 
+- When player does not give 2 coordinates, the game breaks. FIXED
+
+- Restart function restarts the game but does not restart the game boards. The board of the previous game is being displayed
 
 
 ## testing
