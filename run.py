@@ -29,7 +29,7 @@ def create_player():
     Creates a username
     This is required
     '''
-    username_input = input('Create your username: \n')
+    username_input = input('Create your username:\n')
     if username_input == '':
         print('You need to fill in a name. Try again')
         create_player()
@@ -44,7 +44,7 @@ def game_rules():
     Continues without displaying the rules if answer is 'n'
     If answered otherwise, the user is asked to give valid input
     '''
-    rules_answer = input('Would you like to read the rules? y/n \n')
+    rules_answer = input('Would you like to read the rules? y/n\n')
     if rules_answer == 'y':
         print('-----------------------------------')
         print('On the battleship board there are 4 hidden ships.')
@@ -162,7 +162,7 @@ def restart_game():
     Restarts the game if input is 'y'
     '''
     print('-----------------------------------')
-    restart = input('Do you want to play again? y/n \n')
+    restart = input('Do you want to play again? y/n\n')
     if restart == 'y':
         main()
     elif restart != 'n':
