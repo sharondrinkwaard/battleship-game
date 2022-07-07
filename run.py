@@ -4,6 +4,10 @@ Battleship game Portfolio Project 3
 
 # Imports randint so a random integer can be used
 from random import randint
+# Imports os and sys libaries to restart the game without previous data
+import os
+import sys
+
 
 # Index 0 are the 'row headings'
 board = [
@@ -122,7 +126,6 @@ def turns_and_moves(board, board_with_moves):
                 print('Input is not valid!')
             else:
                 print(move_row, move_column)
-                print('This value is correct. Continue to game')
                 break
 
         if board[move_row][move_column] == 'X':
@@ -151,10 +154,15 @@ def turns_and_moves(board, board_with_moves):
             break
 
 
-def game():
+def reset_data():
     '''
-    Runs the game
+    Restarts the game without data from the previous game
     '''
+    # Clears the terminal
+    os.system('cls' if os.name == 'nt' else 'clear')
+    # Restarts the program so the data of the previous game will not
+    # be displayed on the new game
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 def restart_game():
@@ -164,6 +172,7 @@ def restart_game():
     print('-----------------------------------')
     restart = input('Do you want to play again? y/n\n')
     if restart == 'y':
+        reset_data()
         main()
     elif restart != 'n':
         print('Invalid input, try again')
