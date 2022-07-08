@@ -1,11 +1,11 @@
 # The paramount battleships game
 The paramount battleships game is a Python terminal game that runs on Heroku.
-Battleship is a strategy type guessing game. It is known worldwide as a pencil and paper game which dates from World War I. And played on ruled grids where each player has warships, which are hidden from the other player.
+Battleship is a strategy type guessing game. It is known worldwide as a pencil and paper game which dates from World War I. And played on ruled grids where one player or each player has warships, which are hidden from the other player.
 
 
 ## How to play
 ---
-The ultimate goal is to destroy all the ships of the other player.
+The ultimate goal is to destroy all the ships from the other player.
 There are a few variations of this game. 
 This one has one game board where the computer places 4 ships at a random location.
 The player has to fill in 2 coordinates between 1 and 5 and guess where the ships are located. 
@@ -17,15 +17,16 @@ When all ships sank, the player wins.
 When the player ran out of bullets, the player loses. 
 ## Features
 ---
+
 ## Features left to implement
 ---
-- Press an exit button to be able to stop while playing the game.
-- Play against the computer, so computer has his own board (2 game boards in total) instead of 1 like right now.
-- To keep track of the amount of bullets while playing the game so the player knows how many bullets he has left.
-- To make sure the same coordinates cannot be placed twice.
-- To make sure no ships can be placed twice on the same coordinations
+- I want the player to be able to play against several players. Like the computer and even an extra player. So everyone has his own board (2 or 3 game boards in total) instead of 1 like right now.
+- I want to keep track of the amount of bullets while playing the game so the player knows how many bullets he has left.
+- I want to make sure the same coordinates cannot be placed twice.
+- I want to make sure no ships can be placed twice on the same coordinations. I also mentions this below at the Unsolved Bugs.
 - I want the user to place the ships themselves and choose different sizes of the ships.
 - I want to create several difficulty levels by expanding the game board.
+
 ## Data Model Design
 ---
 ## Libraries
@@ -36,8 +37,57 @@ When the player ran out of bullets, the player loses.
     - The os library was imported to create a function to utilise the os.system to clear the terminal.
 - sys
     - The sys library was imported to create a function to restart my program so that previous data would not be used when restarting the game.
+    It is also used to create a function to exit the game while playing. 
 ## Testing
 ---
+### Validator
+---
+- No error were returned when passing through the [Pep8 Validator](http://pep8online.com/)
+
+![Pep8 Validator results](./assets/images/pep8_validator.png)
+
+### What I tested
+---
+- I checked if all different kinds of input (letters, numbers, spaces, nothing) were catched properly before displaying the rules. And I can confirm that this is correct. Only the right input will continue to display the rules or not.
+    - 'y' will display the rules
+    - 'n' won't display the rules and game will continue
+    - All other input will be catched:
+    SCREENSHOT
+
+-  I confirm that the player can fill in a username to their liking. And if they do not fill in anything, he is asked again to create a username until an answer is given.
+SCREENSHOT
+
+- I confirm that the battleship game board is dispayed correctly and is empty. There is no previous player data and the ships are hidden.
+SCREENSHOT
+
+- I confirm that there are ships being placed on the board at a different location each time. Like mentioned in Unsolved Bugs, sometimes (not every game round) this function places 2 ships at the same location which results in losing the game.
+
+- I confirm that when giving the coordinates, different kinds of input are catched.
+    - Input above 5 is out of range
+    - Letters or symbols are invalid
+    - 0 quits the game, like mentioned in the rules. I tested that the quit game function actually stops the game and clears the terminal.
+Only when the input is valid, the game will continue.
+SCREENSHOT
+Regarding input, I also tested that:
+    - An 'M' is placed on the board when coordinates are incorrect.
+    - An '$' is placed on the board when coordinates are correct.
+SCREENSHOT
+
+- I confirm that the player wins when 4 ships have been hit. I tested the increment statement and each 'correct hit' iteration, it increments by 1. 
+SCREENSHOT
+
+- I confirm that the player loses when he ran out of bullets.
+SCREENSHOT
+
+- I confirm that the restart game function works correctly.
+    - It clears the terminal
+    - It restarts the module so no previous data is being saved
+SCREENSHOT
+
+- I confirm that the main function works correctly. It calls all other functions in the right order which results in a working game. 
+
+
+
 ## Issues And Bugs Found
 ---
 When writing this game, I found several issues on the way that needed to be solved.
@@ -72,9 +122,6 @@ When writing this game, I found several issues on the way that needed to be solv
 This function choses a random integer between 1 and 4 within a for loop of range 4. It should place 4 ships at a random location each time the function is called. And it is placing the ships correctly most of the time. Just so now and then it places only 3 ships because 2 coordinates are the exact same. What happens is the functions places 2 ships on the same location. 
 I want to solve this by using an extra if statement or an try except statement. So far I haven't had time yet and will leave this for features left to implement in the future. 
     
-## Validator Testing
----
-- PEP8 SCREENSHOT
 ## Deployment
 ---
 ## Credits
@@ -109,4 +156,5 @@ https://www.codegrepper.com/code-examples/python/restart+python+script+automatic
 https://www.w3schools.com/python/python_try_except.asp - helped me learn about try and except statements
 https://medium.com/@saumya.ranjan/how-to-write-a-readme-md-file-markdown-file-20cb7cbcd6f - reminded me of how to write in markdown
 https://en.wikipedia.org/wiki/Battleship_(game)#:~:text=The%20game%20of%20Battleship%20is%20thought%20to%20have,played%20by%20Russian%20officers%20before%20World%20War%20I - To learn a bit more about the battleship game which I was not familiar with
+https://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used - Taught me how to use the exit statement of the sys library.
 
