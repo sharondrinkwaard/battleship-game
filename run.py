@@ -109,7 +109,8 @@ def turns_and_moves(board, board_with_moves):
     It catches all different kinds of input so that all errors
     are being handled correctly without breaking the game
     '''
-    points_player = int(0)
+    points_player = 0
+    # bullets_left = 10
 
     for bullets in range(11):
         # While loop with try except statement to check if input is valid

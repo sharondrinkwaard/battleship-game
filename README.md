@@ -20,13 +20,48 @@ When the player ran out of bullets, the player loses.
 ## Features
 ---
 
+- It starts with a quick welcome message followed by a question if the player wants to read the rules.
+![Welcome message](./assets/images/welcome_message.png)
+
+- If answered 'y' the rules are being displayed before continuing.
+![Display rules](./assets/images/rules.png)
+
+- If answered 'n' the game will continue and the player will be asked to create a username.
+![Create username](./assets/images/create_username.png)
+
+- After filling in a username, the game board will be shown.
+![Game board](./assets/images/game_board.png)
+
+- Then will be asked to give 2 coordinations to hit the ships.
+![Coordinates input](./assets/images/coordinates_input.png)
+
+- If these are correct, an '$' will be printed on the board to locate the sunken ship.
+Also the 'Sunken ships' variable will increse with 1 each time.
+![Correct coordinates](./assets/images/correct_coordinates.png)
+
+- If the coordinates are incorrect, an 'M' will be printed on the board to display the missed bullets.
+![Incorrect coordinates](./assets/images/incorrect_coordinates.png)
+
+- When 4 ships are hit, the player wins the game.
+![Win game](./assets/images/win_game.png)
+
+- When the player ran out of bullets before hitting all the ships, the player loses.
+![Lose game](./assets/images/lose_game.png)
+
+- When the player want to quit the game while playing, the 0 coordiates have to be given. Then the game will quit and clear the terminal.
+![Quit game](./assets/images/quit_game.png)
+
+- After winning or losing, the player is asked if he wants to play again. 'Y' results in a new game with an empty terminal without previous game data. 'N' quits the game. 
+![Replay game](./assets/images/replay.png)
+
+
 ## Features left to implement
 ---
 - I want the player to be able to play against several players. Like the computer and even an extra player. So everyone has his own board (2 or 3 game boards in total) instead of 1 like right now.
 
 - I want to keep track of the amount of bullets while playing the game so the player knows how many bullets he has left.
 
-- I want to make sure the same coordinates cannot be placed twice.
+- I want to make sure the same coordinates cannot be entered twice by the player.
 
 - I want to make sure no ships can be placed twice on the same coordinations. I also mentions this below at the Unsolved Bugs.
 
@@ -134,6 +169,24 @@ I want to solve this by using an extra if statement or an try except statement. 
 
 ## Deployment
 ---
+
+1. Log in to Heroku or create an account.
+2. Then, click the button labelled New from the dashboard in the top right corner and from the drop-down menu select Create New App.
+You must enter a unique app name.
+3. Next, select your region.
+4. Click on the Create App button.
+5. The next page you will see is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars.
+6. Click Reveal Config Vars and enter port into the Key box and 8000 into the Value box and click the Add button.
+7. Next, scroll down to the Buildpack section click Add Buildpack select python and click Save Changes.
+8. Repeat step 8 to add node.js. o Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order.
+9. Scroll to the top of the page and now choose the Deploy tab.
+10. Select Github as the deployment method.
+11. Confirm you want to connect to GitHub.
+12. Search for the repository name and click the connect button.
+13. Scroll to the bottom of the deploy page and select preferred deployment type:
+- Click either Enable Automatic Deploys for automatic deployment when you push updates to Github.
+
+- Select the correct branch for deployment from the drop-down menu and click Deploy Branch for manual deployment.
 ## Credits
 ---
 Resources I used to get a better understanding of Python 3:
@@ -142,7 +195,7 @@ Resources I used to get a better understanding of Python 3:
 
 - [Geeks for Geeks](https://www.geeksforgeeks.org/reloading-modules-python/) - Helped me understand how to reload a file.
 
-- [Code Grepper](https://www.codegrepper.com/code-examples/python/restart+python+script+automatically) - Helped me undertand the sys library
+- [Code Grepper](https://www.codegrepper.com/code-examples/python/restart+python+script+automatically) - Helped me understand the sys library
 
 - [w3schools](https://www.w3schools.com/python/python_try_except.asp) - Taught me how the try and except statements work.
 
