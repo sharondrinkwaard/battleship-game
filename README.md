@@ -29,6 +29,9 @@ When the player ran out of bullets, the player loses.
 - If answered 'n' the game will continue and the player will be asked to create a username.
 ![Create username](./assets/images/create_username.png)
 
+- If the player does not fill in a username, it is asked again to create one intil a name is filled in.
+![Required username](./assets/images/required_username.png)
+
 - After filling in a username, the game board will be shown.
 ![Game board](./assets/images/game_board.png)
 
@@ -96,13 +99,14 @@ Also the 'Sunken ships' variable will increse with 1 each time.
     - 'y' will display the rules
     - 'n' won't display the rules and game will continue
     - All other input will be catched:
-    SCREENSHOT
+
+![Invalid input](./assets/images/invalid_input.png)
+
+![Out of range](./assets/images/out_of_range.png)
 
 -  I confirm that the player can fill in a username to their liking. And if they do not fill in anything, he is asked again to create a username until an answer is given.
-SCREENSHOT
 
 - I confirm that the battleship game board is dispayed correctly and is empty. There is no previous player data and the ships are hidden.
-SCREENSHOT
 
 - I confirm that there are ships being placed on the board at a different location each time. Like mentioned in Unsolved Bugs, sometimes (not every game round) this function places 2 ships at the same location which results in losing the game.
 
@@ -111,22 +115,18 @@ SCREENSHOT
     - Letters or symbols are invalid
     - 0 quits the game, like mentioned in the rules. I tested that the quit game function actually stops the game and clears the terminal.
 Only when the input is valid, the game will continue.
-SCREENSHOT
-Regarding input, I also tested that:
+
+- Regarding input, I also tested that:
     - An 'M' is placed on the board when coordinates are incorrect.
     - An '$' is placed on the board when coordinates are correct.
-SCREENSHOT
 
 - I confirm that the player wins when 4 ships have been hit. I tested the increment statement and each 'correct hit' iteration, it increments by 1. 
-SCREENSHOT
 
 - I confirm that the player loses when he ran out of bullets.
-SCREENSHOT
 
 - I confirm that the restart game function works correctly.
     - It clears the terminal
     - It restarts the module so no previous data is being saved
-SCREENSHOT
 
 - I confirm that the main function works correctly. It calls all other functions in the right order which results in a working game. 
 
@@ -142,9 +142,9 @@ When writing this game, I found several issues on the way that needed to be solv
     - When the given coordinates were bigger than 5, an error occurred saying the list index is out of range and this would break the game. 
     I solved this by writing the code below:
 
-    ![Input bigger than 5](./assets/images/input_bigger_than_5.png)
+![Input bigger than 5](./assets/images/input_bigger_than_5.png)
 
-    - When the given coordinates were smaller than 1, it was replacing the headings by a ship, or missed shot. I used the index 0 for the headings so the player could use the coordinates from 1 and up. This to prevent confusion by the player who might not be familiar with Python indexing.
+- When the given coordinates were smaller than 1, it was replacing the headings by a ship, or missed shot. I used the index 0 for the headings so the player could use the coordinates from 1 and up. This to prevent confusion by the player who might not be familiar with Python indexing.
     I solved this by writing the code below:
 
     ![Input smaller than 1](./assets/images/input_smaller_than_1.png)
@@ -152,7 +152,7 @@ When writing this game, I found several issues on the way that needed to be solv
     - When only one coordinate was given instead of two, and when a letter was given instead of a number, the game would break because of an error.
     I solved this by using an try except statement within a while loop. See code below:
 
-    ![Catch invalid input](./assets/images/catch_invalid_input.png)
+    ![Catch invalid input](./assets/images/try_except.png)
 
     - The restart function would restart the game but would not reset the game boards. So the moves of the previous game were displayed.
     I created another function to clear the screen and restart my python module so that the game board is empty when restarting the game.
@@ -212,3 +212,5 @@ Other:
 - [Github](https://github.com/ciaraosull/project-3-mastermind) - I used the structure of this Readme file of a fellow student for my own ReadMe file.
 
 - [Google Translate](translate.google.com) - This website was very useful for translating from Dutch to English. 
+
+Credits and big thanks to my mentor Daisy, tutor support and the channels and students on Slack. 

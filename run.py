@@ -123,9 +123,6 @@ def turns_and_moves(board, board_with_moves):
                 if move_row > 5 or move_column > 5:
                     print('That\'s out of range. Try again')
                     continue
-                # elif move_row < 1 or move_column < 1:
-                    # print('That\'s out of range. Try again')
-                    # continue
                 elif move_row == 0 or move_column == 0:
                     ex_now = input('Are you sure you want to quit? y/n\n')
                     if ex_now == 'y':
