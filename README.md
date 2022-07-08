@@ -8,19 +8,19 @@ Battleship is a strategy type guessing game. It is known worldwide as a pencil a
 The ultimate goal is to destroy all the ships from the other player.
 There are a few variations of this game. 
 This one has one game board where the computer places 4 ships at a random location.
-The player has to fill in 2 coordinates between 1 and 5 and guess where the ships are located. 
+The player has to fill in 2 coordinates between 1 and 5 and guesses where the ships are located. 
 
 An 'M' is printed on the board if the player misses.
 An '$' is printed on the board when the player sunk a ship.
 
-When all ships sank, the player wins.
-When the player ran out of bullets, the player loses. 
+When all the ships sank, the player wins.
+When the player runs out of bullets, the player loses. 
 
 
 ## Features
 ---
 
-- It starts with a quick welcome message followed by a question if the player wants to read the rules.
+- It starts with a quick welcome message followed by the question if the player wants to read the rules.
 ![Welcome message](./assets/images/welcome_message.png)
 
 - If answered 'y' the rules are being displayed before continuing.
@@ -29,7 +29,7 @@ When the player ran out of bullets, the player loses.
 - If answered 'n' the game will continue and the player will be asked to create a username.
 ![Create username](./assets/images/create_username.png)
 
-- If the player does not fill in a username, it is asked again to create one intil a name is filled in.
+- If the player does not fill in a username, he is asked again to create one until a name is filled in.
 ![Required username](./assets/images/required_username.png)
 
 - After filling in a username, the game board will be shown.
@@ -39,13 +39,13 @@ When the player ran out of bullets, the player loses.
 ![Coordinates input](./assets/images/coordinates_input.png)
 
 - If these are correct, an '$' will be printed on the board to locate the sunken ship.
-Also the 'Sunken ships' variable will increse with 1 each time.
+Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets left' variable will decrease with 1 each time.
 ![Correct coordinates](./assets/images/correct_coordinates.png)
 
 - If the coordinates are incorrect, an 'M' will be printed on the board to display the missed bullets.
 ![Incorrect coordinates](./assets/images/incorrect_coordinates.png)
 
-- When 4 ships are hit, the player wins the game.
+- When all 4 ships sank, the player wins the game.
 ![Win game](./assets/images/win_game.png)
 
 - When the player ran out of bullets before hitting all the ships, the player loses.
@@ -62,7 +62,7 @@ Also the 'Sunken ships' variable will increse with 1 each time.
 ---
 - I want the player to be able to play against several players. Like the computer and even an extra player. So everyone has his own board (2 or 3 game boards in total) instead of 1 like right now.
 
-- I want to make sure no ships can be placed twice on the same coordinations. I also mentions this below at the Unsolved Bugs.
+- I want to make sure no ships can be placed twice on the same coordinations. I mentioned this below at the Unsolved Bugs.
 
 - I want the user to place the ships themselves and choose different sizes of the ships.
 
@@ -81,7 +81,7 @@ I created a flow chart with [Lucid Chart](https://www.lucidchart.com/) to lay ou
 - os
     - The os library was imported to create a function to utilise the os.system to clear the terminal.
 - sys
-    - The sys library was imported to create a function to restart my program so that previous data would not be used when restarting the game.
+    - The sys library was imported to create a function to restart the program so that previous data would not be used when restarting the game.
     It is also used to create a function to exit the game while playing.
 
 
@@ -121,7 +121,7 @@ Only when the input is valid, the game will continue.
 
 - I confirm that the player wins when 4 ships have been hit. I tested the increment statement and each 'correct hit' iteration, it increments by 1. 
 
-- I confirm that the player loses when he ran out of bullets. There is an increment statement to keep track of the amount of bullets.
+- I confirm that the player loses when he ran out of bullets. There is an decrement statement to keep track of the amount of bullets.
 
 - I confirm that the restart game function works correctly.
     - It clears the terminal
@@ -142,11 +142,6 @@ When writing this game, I found several issues on the way that needed to be solv
     I solved this by writing the code below:
 
 ![Input bigger than 5](./assets/images/input_bigger_than_5.png)
-
-- When the given coordinates were smaller than 1, it was replacing the headings by a ship, or missed shot. I used the index 0 for the headings so the player could use the coordinates from 1 and up. This to prevent confusion by the player who might not be familiar with Python indexing.
-    I solved this by writing the code below:
-
-    ![Input smaller than 1](./assets/images/input_smaller_than_1.png)
 
 - When only one coordinate was given instead of two, and when a letter was given instead of a number, the game would break because of an error.
 I solved this by using an try except statement within a while loop. See code below:
@@ -175,7 +170,7 @@ You must enter a unique app name.
 3. Next, select your region.
 4. Click on the Create App button.
 5. The next page you will see is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars.
-6. Click Reveal Config Vars and enter port into the Key box and 8000 into the Value box and click the Add button.
+6. Click Reveal Config Vars and enter PORT into the Key box and 8000 into the Value box and click the Add button.
 7. Next, scroll down to the Buildpack section click Add Buildpack select python and click Save Changes.
 8. Repeat step 8 to add node.js. o Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order.
 9. Scroll to the top of the page and now choose the Deploy tab.
@@ -200,8 +195,6 @@ Resources I used to get a better understanding of Python 3:
 
 - [Stackoverflow](https://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used) - Taught me how to use the exit statement of the sys library.
 
-
-
 Other:
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)#:~:text=The%20game%20of%20Battleship%20is%20thought%20to%20have,played%20by%20Russian%20officers%20before%20World%20War%20I) - Taught me a bit more about the battleship game which I was not familiar with
@@ -210,6 +203,6 @@ Other:
 
 - [Github](https://github.com/ciaraosull/project-3-mastermind) - I used the structure of this Readme file of a fellow student for my own ReadMe file.
 
-- [Google Translate](translate.google.com) - This website was very useful for translating from Dutch to English. 
+- [Google Translate](translate.google.com) - This website was very useful for translating from Dutch to English.
 
 Credits and big thanks to my mentor Daisy, tutor support and the channels and students on Slack. 
