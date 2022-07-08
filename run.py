@@ -56,7 +56,9 @@ def game_rules():
         print('You have 10 bullets to find all of them.')
         print('When you find all 4 ships, you win.')
         print('If you run out of bullets, you lose.\n')
-        print('Use number 1 2 3 4 or 5.\n')
+        print('Use numbers 1 2 3 4 or 5.\n')
+        print('To quit: set two 0\'s as coordinates')
+        print('One 0 for the row, one for the column.\n')
         print('M = missed shot\n$ = Ship that sunk')
         print('-----------------------------------')
     elif rules_answer != 'n':
@@ -121,15 +123,15 @@ def turns_and_moves(board, board_with_moves):
                 if move_row > 5 or move_column > 5:
                     print('That\'s out of range. Try again')
                     continue
-                #elif move_row < 1 or move_column < 1:
-                    #print('That\'s out of range. Try again')
-                    #continue
+                # elif move_row < 1 or move_column < 1:
+                    # print('That\'s out of range. Try again')
+                    # continue
                 elif move_row == 0 or move_column == 0:
-                    print('Are you sure you want to quit?')
-                    stop = input('y/n\n')
-                    if stop == 'y':
-                        break
-                    else: 
+                    ex_now = input('Are you sure you want to quit? y/n\n')
+                    if ex_now == 'y':
+                        print('Till next time!')
+                        quit_game()
+                    else:
                         continue
             except ValueError:
                 print('Input is not valid!')
@@ -174,9 +176,20 @@ def reset_data():
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
+def quit_game():
+    '''
+    Function to quit the game while playing
+    '''
+    # Clears the terminal
+    os.system('cls' if os.name == 'nt' else 'clear')
+    # Exits the game
+    sys.exit()
+
+
 def restart_game():
     '''
     Restarts the game if input is 'y'
+    Resets all data
     '''
     print('-----------------------------------')
     restart = input('Do you want to play again? y/n\n')
