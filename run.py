@@ -57,8 +57,7 @@ def game_rules():
         print('When you find all 4 ships, you win.')
         print('If you run out of bullets, you lose.\n')
         print('Use numbers 1 2 3 4 or 5.\n')
-        print('To quit: set two 0\'s as coordinates')
-        print('One 0 for the row, one for the column.\n')
+        print('To quit: set the coordinates to 0\n')
         print('M = missed shot\n$ = Ship that sunk')
         print('-----------------------------------')
     elif rules_answer != 'n':
@@ -74,7 +73,6 @@ def display_battleship_game(board):
     '''
     for row in board:
         print(" ".join(row))
-    print('-----------------------------------')
 
 
 def display_board_with_moves(board_with_moves):
@@ -84,7 +82,6 @@ def display_board_with_moves(board_with_moves):
     '''
     for row in board_with_moves:
         print(" ".join(row))
-    print('-----------------------------------')
 
 
 def place_random_ships(board):
@@ -99,7 +96,6 @@ def place_random_ships(board):
         ships_row = randint(1, 5)
         ships_column = randint(1, 5)
         board[ships_row][ships_column] = 'X'
-        print(ships_row, ships_column)  # Delete before employment!
 
 
 def turns_and_moves(board, board_with_moves):
@@ -110,9 +106,9 @@ def turns_and_moves(board, board_with_moves):
     are being handled correctly without breaking the game
     '''
     points_player = 0
-    # bullets_left = 10
+    bullets_left = 10
 
-    for bullets in range(11):
+    for rounds in range(15):
         # While loop with try except statement to check if input is valid
         while True:
             try:
@@ -133,19 +129,27 @@ def turns_and_moves(board, board_with_moves):
             except ValueError:
                 print('Input is not valid!')
             else:
-                print(move_row, move_column)
                 break
 
         if board[move_row][move_column] == 'X':
-            print('Hit! You sunk a battleship!')
+            print('Hit! You sunk a battleship!\n')
             board[move_row][move_column] = '$'
             board_with_moves[move_row][move_column] = '$'
             points_player += 1
+            bullets_left -= 1
             print(f'Sunken ships: {points_player}')
+            print(f'Bullets left: {bullets_left}')
             display_board_with_moves(board_with_moves)
+        elif board[move_row][move_column] == 'M' or '$':
+            print('You already choose these coordinations.\n')
+            bullets_left -= 1
+            print(f'Sunken ships: {points_player}')
+            print(f'Bullets left: {bullets_left}')
         else:
             print('You missed... \nTry again')
+            bullets_left -= 1
             print(f'Sunken ships: {points_player}')
+            print(f'Bullets left: {bullets_left}')
             board[move_row][move_column] = 'M'
             board_with_moves[move_row][move_column] = 'M'
             display_board_with_moves(board_with_moves)
@@ -155,9 +159,9 @@ def turns_and_moves(board, board_with_moves):
             print('You sunk all the battleships and won this game!')
             print('Congratulations!')
             break
-        if bullets == 10:
+        if bullets_left == 0:
             print('-----------------------------------')
-            print('No more bullets left\nGame over!')
+            print('No more bullets left\nGame over!\n')
             display_battleship_game(board)
             break
 

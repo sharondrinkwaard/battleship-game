@@ -62,10 +62,6 @@ Also the 'Sunken ships' variable will increse with 1 each time.
 ---
 - I want the player to be able to play against several players. Like the computer and even an extra player. So everyone has his own board (2 or 3 game boards in total) instead of 1 like right now.
 
-- I want to keep track of the amount of bullets while playing the game so the player knows how many bullets he has left.
-
-- I want to make sure the same coordinates cannot be entered twice by the player.
-
 - I want to make sure no ships can be placed twice on the same coordinations. I also mentions this below at the Unsolved Bugs.
 
 - I want the user to place the ships themselves and choose different sizes of the ships.
@@ -75,6 +71,9 @@ Also the 'Sunken ships' variable will increse with 1 each time.
 
 ## Data Model Design
 ---
+I created a flow chart with [Lucid Chart](https://www.lucidchart.com/) to lay out the flow of the game.
+
+![Flow Chart Lucid](./assets/images/flow_chart_lucid.png)
 ## Libraries
 ---
 - random
@@ -122,7 +121,7 @@ Only when the input is valid, the game will continue.
 
 - I confirm that the player wins when 4 ships have been hit. I tested the increment statement and each 'correct hit' iteration, it increments by 1. 
 
-- I confirm that the player loses when he ran out of bullets.
+- I confirm that the player loses when he ran out of bullets. There is an increment statement to keep track of the amount of bullets.
 
 - I confirm that the restart game function works correctly.
     - It clears the terminal
@@ -149,15 +148,15 @@ When writing this game, I found several issues on the way that needed to be solv
 
     ![Input smaller than 1](./assets/images/input_smaller_than_1.png)
 
-    - When only one coordinate was given instead of two, and when a letter was given instead of a number, the game would break because of an error.
-    I solved this by using an try except statement within a while loop. See code below:
+- When only one coordinate was given instead of two, and when a letter was given instead of a number, the game would break because of an error.
+I solved this by using an try except statement within a while loop. See code below:
 
-    ![Catch invalid input](./assets/images/try_except.png)
+![Catch invalid input](./assets/images/try_except.png)
 
-    - The restart function would restart the game but would not reset the game boards. So the moves of the previous game were displayed.
-    I created another function to clear the screen and restart my python module so that the game board is empty when restarting the game.
+- The restart function would restart the game but would not reset the game boards. So the moves of the previous game were displayed.
+I created another function to clear the screen and restart my python module so that the game board is empty when restarting the game.
 
-    ![Reset function](./assets/images/reset_function.png)
+![Reset function](./assets/images/reset_function.png)
 
 
 ### Unsolved bugs
