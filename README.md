@@ -15,17 +15,25 @@ An '$' is printed on the board when the player sunk a ship.
 
 When all ships sank, the player wins.
 When the player ran out of bullets, the player loses. 
+
+
 ## Features
 ---
 
 ## Features left to implement
 ---
 - I want the player to be able to play against several players. Like the computer and even an extra player. So everyone has his own board (2 or 3 game boards in total) instead of 1 like right now.
+
 - I want to keep track of the amount of bullets while playing the game so the player knows how many bullets he has left.
+
 - I want to make sure the same coordinates cannot be placed twice.
+
 - I want to make sure no ships can be placed twice on the same coordinations. I also mentions this below at the Unsolved Bugs.
+
 - I want the user to place the ships themselves and choose different sizes of the ships.
+
 - I want to create several difficulty levels by expanding the game board.
+
 
 ## Data Model Design
 ---
@@ -37,18 +45,19 @@ When the player ran out of bullets, the player loses.
     - The os library was imported to create a function to utilise the os.system to clear the terminal.
 - sys
     - The sys library was imported to create a function to restart my program so that previous data would not be used when restarting the game.
-    It is also used to create a function to exit the game while playing. 
+    It is also used to create a function to exit the game while playing.
+
+
 ## Testing
 ---
 ### Validator
----
-- No error were returned when passing through the [Pep8 Validator](http://pep8online.com/)
+- No errors were returned when passing through the [Pep8 Validator](http://pep8online.com/)
 
 ![Pep8 Validator results](./assets/images/pep8_validator.png)
 
 ### What I tested
 ---
-- I checked if all different kinds of input (letters, numbers, spaces, nothing) were catched properly before displaying the rules. And I can confirm that this is correct. Only the right input will continue to display the rules or not.
+- I checked if all different kinds of input (letters, numbers, symbols, spaces, nothing) were catched properly before displaying the rules. And I can confirm that this is correct. Only the right input will continue to display the rules or not.
     - 'y' will display the rules
     - 'n' won't display the rules and game will continue
     - All other input will be catched:
@@ -87,7 +96,6 @@ SCREENSHOT
 - I confirm that the main function works correctly. It calls all other functions in the right order which results in a working game. 
 
 
-
 ## Issues And Bugs Found
 ---
 When writing this game, I found several issues on the way that needed to be solved.
@@ -116,45 +124,38 @@ When writing this game, I found several issues on the way that needed to be solv
 
     ![Reset function](./assets/images/reset_function.png)
 
+
 ### Unsolved bugs
 ---
 - Sometimes the ship placement function places only 3 ships instead of 4. 
-This function choses a random integer between 1 and 4 within a for loop of range 4. It should place 4 ships at a random location each time the function is called. And it is placing the ships correctly most of the time. Just so now and then it places only 3 ships because 2 coordinates are the exact same. What happens is the functions places 2 ships on the same location. 
-I want to solve this by using an extra if statement or an try except statement. So far I haven't had time yet and will leave this for features left to implement in the future. 
-    
+This function choses a random integer between 1 and 4 within a for loop of range 4. It should place 4 ships at a random location each time the function is called. And it is placing the ships correctly most of the time. Just so now and then (not every game round) it places only 3 ships because 2 coordinates are the exact same. 2 Ships are placed on the same coordinates.
+I want to solve this by using an extra if statement or an try except statement. So far I haven't had time yet and will leave this for features left to implement in the future.
+
+
 ## Deployment
 ---
 ## Credits
 ---
+Resources I used to get a better understanding of Python 3:
+
+- [Docs Python](https://docs.python.org/3/library/random.html) - Helped me understand the randint.
+
+- [Geeks for Geeks](https://www.geeksforgeeks.org/reloading-modules-python/) - Helped me understand how to reload a file.
+
+- [Code Grepper](https://www.codegrepper.com/code-examples/python/restart+python+script+automatically) - Helped me undertand the sys library
+
+- [w3schools](https://www.w3schools.com/python/python_try_except.asp) - Taught me how the try and except statements work.
+
+- [Stackoverflow](https://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used) - Taught me how to use the exit statement of the sys library.
 
 
 
-## notes
-from random import randint -- I saw this on a comment on a Github repo and started googling it to learn more about it. https://docs.python.org/3/library/random.html
+Other:
 
-= Trying to hide the ships: there probably is an better way to do this with less code
-Tutor support was busy and I was running out of time so I had to be a bit creative
-I decided to create anoter game board so that I have 2.
-One for the player moves and one for the ships
-Every time I need to display the board without ships, I display the board of the player moves.
-Everytime The user gets it right and hits a ship, I place an $ on both of the boards so both boards keep track of what ships are being hit, while keeping the other ships hidden from the player.
+- [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)#:~:text=The%20game%20of%20Battleship%20is%20thought%20to%20have,played%20by%20Russian%20officers%20before%20World%20War%20I) - Taught me a bit more about the battleship game which I was not familiar with
 
+- [Medium](https://medium.com/@saumya.ranjan/how-to-write-a-readme-md-file-markdown-file-20cb7cbcd6f) - Reminded me of how to write a ReadMe in markdown.
 
+- [Github](https://github.com/ciaraosull/project-3-mastermind) - I used the structure of this Readme file of a fellow student for my own ReadMe file.
 
-## testing
-- game input:
-- tested when a user puts in a 0 (which is out of range in this game), that it won't break the game but that it is catched properly. 
-- Same for when the player puts in a value above 5, I am making sure this won't break the game but continues after giving the player a 2nd try to give valid input. 
-- When no input is given, the try except code catches the error
-- When a letter is given instead of a number, the try except catches the error
-- when input is the same location as an 'x, a ship ($) is placed on the board so the player can see 
-- When the player misses a battleship, an 'M' is printed on the board
-
-## links
-https://www.geeksforgeeks.org/reloading-modules-python/
-https://www.codegrepper.com/code-examples/python/restart+python+script+automatically - helped me to understand the sys library
-https://www.w3schools.com/python/python_try_except.asp - helped me learn about try and except statements
-https://medium.com/@saumya.ranjan/how-to-write-a-readme-md-file-markdown-file-20cb7cbcd6f - reminded me of how to write in markdown
-https://en.wikipedia.org/wiki/Battleship_(game)#:~:text=The%20game%20of%20Battleship%20is%20thought%20to%20have,played%20by%20Russian%20officers%20before%20World%20War%20I - To learn a bit more about the battleship game which I was not familiar with
-https://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used - Taught me how to use the exit statement of the sys library.
-
+- [Google Translate](translate.google.com) - This website was very useful for translating from Dutch to English. 
