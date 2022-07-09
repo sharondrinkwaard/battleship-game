@@ -8,6 +8,10 @@ from random import randint
 import os
 # Imports sys library to restart the game without previous data
 import sys
+# Imports colorama library so colors can be used in the terminal
+import colorama
+from colorama import Fore
+colorama.init(autoreset=True)
 
 
 # Index 0 are the 'row headings'
@@ -132,7 +136,7 @@ def turns_and_moves(board, board_with_moves):
                 break
 
         if board[move_row][move_column] == 'X':
-            print('Hit! You sunk a battleship!\n')
+            print(f'{Fore.GREEN}Hit! You sunk a battleship!\n')
             board[move_row][move_column] = '$'
             board_with_moves[move_row][move_column] = '$'
             points_player += 1
@@ -151,7 +155,7 @@ def turns_and_moves(board, board_with_moves):
             print(f'Sunken ships: {points_player}')
             print(f'Bullets left: {bullets_left}\n')
         else:
-            print('You missed... \nTry again\n')
+            print(f'{Fore.RED}You missed... \nTry again\n')
             bullets_left -= 1
             print(f'Sunken ships: {points_player}')
             print(f'Bullets left: {bullets_left}\n')
@@ -162,11 +166,11 @@ def turns_and_moves(board, board_with_moves):
         if points_player == 4:
             print('-----------------------------------')
             print('You sunk all the battleships and won this game!')
-            print('Congratulations!')
+            print(f'{Fore.YELLOW}Congratulations!')
             break
         if bullets_left == 0:
             print('-----------------------------------')
-            print('No more bullets left\nGame over!\n')
+            print(f'No more bullets left\n{Fore.RED}Game over!\n')
             display_battleship_game(board)
             break
 
@@ -214,7 +218,7 @@ def main():
     Main function where all other functions are being called from.
     This functions runs the game
     '''
-    print('\nWelcome to the Battleships game!')
+    print(f'\n{Fore.BLUE}Welcome to the Battleships game!')
     print('-----------------------------------')
     game_rules()
     create_player()
