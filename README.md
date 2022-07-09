@@ -23,40 +23,52 @@ When the player runs out of bullets, the player loses.
 ---
 
 - It starts with a quick welcome message followed by the question if the player wants to read the rules.
+
 ![Welcome message](./assets/images/welcome_message_question.png)
 
 - If answered 'y' the rules are being displayed before continuing.
+
 ![Display rules](./assets/images/rules_displayed.png)
 
 - If answered 'n' the game will continue and the player will be asked to create a username.
+
 ![Create username](./assets/images/create_username.png)
 
 - If the player does not fill in a username, he is asked again to create one until a name is filled in.
+
 ![Required username](./assets/images/required_username.png)
 
-- After filling in a username, the game board will be shown.
+- After filling in a username, the game board will be shown. 
+
 ![Game board](./assets/images/game_board.png)
 
 - Then will be asked to give 2 coordinations to hit the ships.
+
 ![Coordinates input](./assets/images/coordinates_input.png)
 
 - If these are correct, an '$' will be printed on the board to locate the sunken ship.
 Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets left' variable will decrease with 1 each time.
+
 ![Correct coordinates](./assets/images/correct_shot.png)
 
 - If the coordinates are incorrect, an 'M' will be printed on the board to display the missed bullets.
+
 ![Incorrect coordinates](./assets/images/missed_shot.png)
 
 - When all 4 ships sank, the player wins the game.
+
 ![Win game](./assets/images/winner_game.png)
 
 - When the player ran out of bullets before hitting all the ships, the player loses.
+
 ![Lose game](./assets/images/game_over.png)
 
 - When the player want to quit the game while playing, the 0 coordiates have to be given. Then the game will quit and clear the terminal.
+
 ![Quit game](./assets/images/quit_game.png)
 
 - After winning or losing, the player is asked if he wants to play again. 'Y' results in a new game with an empty terminal without previous game data. 'N' quits the game. 
+
 ![Replay game](./assets/images/replay.png)
 
 
@@ -78,6 +90,8 @@ Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets
 I created a flow chart with [Lucid Chart](https://www.lucidchart.com/) to lay out the flow of the game.
 
 ![Flow Chart Lucid](./assets/images/flow_chart_lucid.png)
+
+
 ## Libraries
 ---
 - random
