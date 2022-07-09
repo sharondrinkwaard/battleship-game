@@ -91,7 +91,7 @@ def place_random_ships(board):
     The ships are marked with an 'X' on the board
     '''
     # Starting from 1 instead of 0
-    # beacuse I don't want to place a ship on the headings
+    # to avoid ships being placed on the headings
     for ships in range(4):
         ships_row = randint(1, 5)
         ships_column = randint(1, 5)
@@ -138,18 +138,23 @@ def turns_and_moves(board, board_with_moves):
             points_player += 1
             bullets_left -= 1
             print(f'Sunken ships: {points_player}')
-            print(f'Bullets left: {bullets_left}')
+            print(f'Bullets left: {bullets_left}\n')
             display_board_with_moves(board_with_moves)
-        elif board[move_row][move_column] == 'M' or '$':
+        elif board[move_row][move_column] == 'M':
             print('You already choose these coordinations.\n')
             bullets_left -= 1
             print(f'Sunken ships: {points_player}')
-            print(f'Bullets left: {bullets_left}')
-        else:
-            print('You missed... \nTry again')
+            print(f'Bullets left: {bullets_left}\n')
+        elif board[move_row][move_column] == '$':
+            print('You already choose these coordinations.\n')
             bullets_left -= 1
             print(f'Sunken ships: {points_player}')
-            print(f'Bullets left: {bullets_left}')
+            print(f'Bullets left: {bullets_left}\n')
+        else:
+            print('You missed... \nTry again\n')
+            bullets_left -= 1
+            print(f'Sunken ships: {points_player}')
+            print(f'Bullets left: {bullets_left}\n')
             board[move_row][move_column] = 'M'
             board_with_moves[move_row][move_column] = 'M'
             display_board_with_moves(board_with_moves)

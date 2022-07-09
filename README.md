@@ -2,6 +2,8 @@
 The paramount battleships game is a Python terminal game that runs on Heroku.
 Battleship is a strategy type guessing game. It is known worldwide as a pencil and paper game which dates from World War I. And played on ruled grids where one player or each player has warships, which are hidden from the other player.
 
+[Click here](https://paramount-battleships-game.herokuapp.com/) to play the game!
+
 
 ## How to play
 ---
@@ -24,7 +26,7 @@ When the player runs out of bullets, the player loses.
 ![Welcome message](./assets/images/welcome_message.png)
 
 - If answered 'y' the rules are being displayed before continuing.
-![Display rules](./assets/images/rules.png)
+![Display rules](./assets/images/rules_displayed.png)
 
 - If answered 'n' the game will continue and the player will be asked to create a username.
 ![Create username](./assets/images/create_username.png)
@@ -40,7 +42,7 @@ When the player runs out of bullets, the player loses.
 
 - If these are correct, an '$' will be printed on the board to locate the sunken ship.
 Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets left' variable will decrease with 1 each time.
-![Correct coordinates](./assets/images/correct_coordinates.png)
+![Correct coordinates](./assets/images/correct_coordinates_hit.png)
 
 - If the coordinates are incorrect, an 'M' will be printed on the board to display the missed bullets.
 ![Incorrect coordinates](./assets/images/incorrect_coordinates.png)
