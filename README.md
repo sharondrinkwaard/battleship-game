@@ -70,6 +70,8 @@ Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets
 
 - I want to create several difficulty levels by expanding the game board.
 
+- Due to a time limit, I could not implement more use of colorama. I want to do this in the future to make the game look more appealing.
+
 
 ## Data Model Design
 ---
@@ -85,6 +87,8 @@ I created a flow chart with [Lucid Chart](https://www.lucidchart.com/) to lay ou
 - sys
     - The sys library was imported to create a function to restart the program so that previous data would not be used when restarting the game.
     It is also used to create a function to exit the game while playing.
+- colorama
+    - The colorama library was installed to give color to several statements.
 
 
 ## Testing
