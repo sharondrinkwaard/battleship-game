@@ -23,7 +23,7 @@ When the player runs out of bullets, the player loses.
 ---
 
 - It starts with a quick welcome message followed by the question if the player wants to read the rules.
-![Welcome message](./assets/images/welcome_message.png)
+![Welcome message](./assets/images/welcome_message_question.png)
 
 - If answered 'y' the rules are being displayed before continuing.
 ![Display rules](./assets/images/rules_displayed.png)
@@ -42,16 +42,16 @@ When the player runs out of bullets, the player loses.
 
 - If these are correct, an '$' will be printed on the board to locate the sunken ship.
 Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets left' variable will decrease with 1 each time.
-![Correct coordinates](./assets/images/correct_coordinates_hit.png)
+![Correct coordinates](./assets/images/correct_shot.png)
 
 - If the coordinates are incorrect, an 'M' will be printed on the board to display the missed bullets.
-![Incorrect coordinates](./assets/images/incorrect_coordinates.png)
+![Incorrect coordinates](./assets/images/missed_shot.png)
 
 - When all 4 ships sank, the player wins the game.
 ![Win game](./assets/images/win_game.png)
 
 - When the player ran out of bullets before hitting all the ships, the player loses.
-![Lose game](./assets/images/lose_game.png)
+![Lose game](./assets/images/game_over.png)
 
 - When the player want to quit the game while playing, the 0 coordiates have to be given. Then the game will quit and clear the terminal.
 ![Quit game](./assets/images/quit_game.png)
@@ -73,7 +73,7 @@ Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets
 - Due to a time limit, I could not implement more use of colorama. I want to do this in the future to make the game look more appealing.
 
 
-## Data Model Design
+## Flow Chart
 ---
 I created a flow chart with [Lucid Chart](https://www.lucidchart.com/) to lay out the flow of the game.
 
@@ -210,5 +210,7 @@ Other:
 - [Github](https://github.com/ciaraosull/project-3-mastermind) - I used the structure of this Readme file of a fellow student for my own ReadMe file.
 
 - [Google Translate](translate.google.com) - This website was very useful for translating from Dutch to English.
+
+- [Lucid Chart](https://www.lucidchart.com/) - To lay out the flow of the game.
 
 Credits and big thanks to my mentor Daisy, tutor support and the channels and students on Slack. 

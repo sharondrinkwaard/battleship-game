@@ -100,6 +100,7 @@ def place_random_ships(board):
         ships_row = randint(1, 5)
         ships_column = randint(1, 5)
         board[ships_row][ships_column] = 'X'
+        print(ships_row, ships_column)
 
 
 def turns_and_moves(board, board_with_moves):
