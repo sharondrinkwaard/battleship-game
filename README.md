@@ -48,7 +48,7 @@ Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets
 ![Incorrect coordinates](./assets/images/missed_shot.png)
 
 - When all 4 ships sank, the player wins the game.
-![Win game](./assets/images/win_game.png)
+![Win game](./assets/images/winner_game.png)
 
 - When the player ran out of bullets before hitting all the ships, the player loses.
 ![Lose game](./assets/images/game_over.png)
@@ -70,7 +70,7 @@ Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets
 
 - I want to create several difficulty levels by expanding the game board.
 
-- Due to a time limit, I could not implement more use of colorama. I want to do this in the future to make the game look more appealing.
+- Due to a time limit, I could not implement more use of colorama so this version is quite minimal. I wanted to show that I know how I can use it. I want to use more colorama in the future to make the game look more appealing.
 
 
 ## Flow Chart
