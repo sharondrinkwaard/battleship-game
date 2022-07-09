@@ -70,7 +70,7 @@ Also the 'Sunken ships' variable will increse with 1 each time. And the 'bullets
 
 - I want to create several difficulty levels by expanding the game board.
 
-- Due to a time limit, I could not implement more use of colorama so this version is quite minimal. I wanted to show that I know how I can use it. I want to use more colorama in the future to make the game look more appealing.
+- Due to a time limit, I could only implement minimal use of colorama. I wanted to show that I know how I can use it. I want to use more colorama in the future to make the game look more appealing.
 
 
 ## Flow Chart
@@ -113,7 +113,7 @@ I created a flow chart with [Lucid Chart](https://www.lucidchart.com/) to lay ou
 
 - I confirm that the battleship game board is dispayed correctly and is empty. There is no previous player data and the ships are hidden.
 
-- I confirm that there are ships being placed on the board at a different location each time. Like mentioned in Unsolved Bugs, sometimes (not every game round) this function places 2 ships at the same location which results in losing the game.
+- I confirm that there are 4 ships being placed on the board at a different location each time.
 
 - I confirm that when giving the coordinates, different kinds of input are catched.
     - Input above 5 is out of range
@@ -159,12 +159,14 @@ I created another function to clear the screen and restart my python module so t
 
 ![Reset function](./assets/images/reset_function.png)
 
+- When playing the game several times, I discovered by using print statements, that sometimes 2 or even 3 ships were placed on the same coordinations. Which results in not being able to win the game. I solved this by creating a while loop with several if statements and an increment method. 
+
+![Ship coordinations](./assets/images/ship_coordinations.png)
+
 
 ### Unsolved bugs
 ---
-- Sometimes the ship placement function places only 3 ships instead of 4. 
-This function choses a random integer between 1 and 4 within a for loop of range 4. It should place 4 ships at a random location each time the function is called. And it is placing the ships correctly most of the time. Just so now and then (not every game round) it places only 3 ships because 2 coordinates are the exact same. 2 Ships are placed on the same coordinates.
-I want to solve this by using an extra if statement or an try except statement. So far I haven't had time yet and will leave this for features left to implement in the future.
+No unsolved bugs remaining.
 
 
 ## Deployment

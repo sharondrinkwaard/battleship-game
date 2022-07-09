@@ -91,15 +91,22 @@ def display_board_with_moves(board_with_moves):
 def place_random_ships(board):
     '''
     This function will place the ships.
-    The for loop with range 4 will place 4 ships at a random location
-    The ships are marked with an 'X' on the board
+    The while loop will place 4 ships at a random location.
+    Only om empty grids so there are no ships on the same location.
+    The ships are marked with an 'X' on the board.
     '''
-    # Starting from 1 instead of 0
-    # to avoid ships being placed on the headings
-    for ships in range(4):
+    added_ships = 0
+    while True:
+        # Starting from 1 instead of 0 to avoid
+        # ships being placed on the headings
         ships_row = randint(1, 5)
         ships_column = randint(1, 5)
-        board[ships_row][ships_column] = 'X'
+        if board[ships_row][ships_column] == '.':
+            board[ships_row][ships_column] = 'X'
+            added_ships += 1
+
+        if added_ships == 4:
+            break
 
 
 def turns_and_moves(board, board_with_moves):
